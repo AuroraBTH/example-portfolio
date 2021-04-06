@@ -5,8 +5,14 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
-    "lint": "node_modules/.bin/eslint .",
-    "clean": "rm -rdf node_modules"
+    "eslint": "node_modules/.bin/eslint .",
+    "stylelint": "node_modules/.bin/stylelint \"**/*.scss\"",
+    "lint": "npm run eslint && npm run stylelint",
+    "clean": "rm -rdf node_modules",
+    "clean-css": "rm public/stylesheets/*.css*",
+    "style": "npm run style-light && npm run style-dark",
+    "style-light": "node_modules/.bin/sass themes/example/style.scss public/stylesheets/style.css --no-source-map",
+    "style-dark": "node_modules/.bin/sass themes/example/style-dark.scss public/stylesheets/style-dark.css --no-source-map"
   },
   "author": "AuroraBTH",
   "license": "MIT",
@@ -17,6 +23,9 @@
     "express-ejs-extend": "^0.0.1"
   },
   "devDependencies": {
-    "eslint": "^7.23.0"
+    "eslint": "^7.23.0",
+    "sass": "^1.32.8",
+    "stylelint": "^13.12.0",
+    "stylelint-config-sass-guidelines": "^8.0.0"
   }
 }
