@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <% if (locals.cookies.theme === "dark") { %>
+        <link rel="stylesheet" href="stylesheets/style-dark.css">
+    <% } else { %>
+        <link rel="stylesheet" href="stylesheets/style.css">
+    <% } %>
+    <title><%= title %></title>
+</head>
+<body>
+    <div class="nav" role="navigation">
+        <a href="/theme/dark">Dark</a>
+        <a href="/theme/light">Light</a>
+        <a href="/theme/reset">Reset</a>
+    </div>
+    <div class="container">
+        <%- content %>
+    </div>
+</body>
+</html>
